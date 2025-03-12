@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('content');
-            $table->timestamp('published_at');
+            $table->unsignedBigInteger('category_id');
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }
