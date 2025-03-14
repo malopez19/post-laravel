@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel 12 - post</title>
-</head>
-<body>
-    <h1>Estamos dentro del formulario para crear el post</h1>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+
+    <h1 class="flex justify-center my-6">Crear post</h1>
+
+    <form action="/posts" method="POST" class="bg-white shadow rounded p-4 flex flex-col">
+        @csrf <!-- Directiva de Blade para generar un token CSRF y proteger contra ataques CSRF -->
+        <label for="title">Titulo</label>
+        <input type="text" name="title" id="title" class="border-2 border-gray-200 p-2">
+        <label for="category_id">Categoria</label>
+        <input type="text" name="category_id" id="category_id" class="border-2 border-gray-200 p-2">
+        <label for="content">Contenido</label>
+        <textarea name="content" id="content" cols="30" rows="10" class="border-2 border-gray-200 p-2"></textarea>
+        <button type="submit" class="mt-5 bg-blue-500 w-auto p-6">Crear post</button>
+    </form>
+@endsection

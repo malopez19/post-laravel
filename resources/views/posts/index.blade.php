@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel 12 - post</title>
-</head>
-<body>
-    <h1>Estamos obteniendo los post</h1>
-</body>
-</html>
+@extends('layouts.app')
+@section('content')
+    <h1 class="flex justify-center">Obteniendo los post</h1>
+    <a href="/posts/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-4 rounded">Crear post</a>
+
+    <div class="grid grid-cols-3 gap-4 my-6">
+        @foreach ($posts as $post)
+            <div class="bg-white shadow rounded p-4">
+                <h2 class="text-lg font-bold text-gray-700">{{ $post->title }}</h2>
+                <a href="/posts/{{$post->id}}" class="text-blue-500">Mostrar post{{$post->id}}</a>
+                <p class="text-sm text-gray-600">{{ $post->content }}</p>
+            </div>
+        @endforeach
+    </div>
+@endsection
