@@ -49,6 +49,7 @@ class PostController extends Controller
         $post->category_id = $request->category_id;
         $post->content = $request->content;
         $post->save();
+        return redirect('/posts');
     }
 
     function delete($post){
